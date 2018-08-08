@@ -1,0 +1,4 @@
+qt/qt_libbitcoinqt_a-qrc_coin2play.o: qt/qrc_coin2play.cpp \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:
