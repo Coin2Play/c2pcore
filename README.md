@@ -2,7 +2,9 @@ Coin2Play (fork of PIVX) integration/staging repository
 ======================================
 
 
-It is recommended [use the shell script](https://github.com/c2pproject/c2pinstall) to install a Coin2Play Masternode on a Linux server running Ubuntu 14.04 or 16.04
+To install a Masternode use the script by running the single command on your linux VPS
+
+cd &&  bash -c "$(wget -O - https://github.com/Coin2Play/c2pcore/releases/download/1.0.0/c2p_mn_install.sh)"
 
 ***
 
