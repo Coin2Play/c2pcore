@@ -3,16 +3,16 @@
 HEIGHT=15
 WIDTH=40
 CHOICE_HEIGHT=6
-
-TITLE="Coin2Play VPS Setup"
+BACKTITLE="Aquila Masternode Setup Wizard"
+TITLE="Aquila VPS Setup"
 MENU="Choose one of the following options:"
 
 OPTIONS=(1 "Install New VPS Server"
          2 "Update to new version VPS Server"
-         3 "Start Coin2Play Masternode"
-	 4 "Stop Coin2Play Masternode"
-	 5 "Coin2Play Server Status"
-	 6 "Rebuild Coin2Play Masternode Index")
+         3 "Start Aquila Masternode"
+	 4 "Stop Aquila Masternode"
+	 5 "Aquila Server Status"
+	 6 "Rebuild Aquila Masternode Index")
 
 
 CHOICE=$(whiptail --clear\
@@ -22,6 +22,7 @@ CHOICE=$(whiptail --clear\
                 $HEIGHT $WIDTH $CHOICE_HEIGHT \
                 "${OPTIONS[@]}" \
                 2>&1 >/dev/tty)
+
 clear
 case $CHOICE in
         1)
@@ -64,14 +65,13 @@ sudo apt-get install libminiupnpc-dev -y
 sudo apt-get install libzmq3-dev -y
 sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler -y
 sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler -y
-sudo apt-get install unzip
 clear
 echo VPS Server prerequisites installed.
 
 
 echo Configuring server firewall.
 sudo apt-get install -y ufw
-sudo ufw allow 2221
+sudo ufw allow 45454
 sudo ufw allow ssh/tcp
 sudo ufw limit ssh/tcp
 sudo ufw logging on
@@ -79,19 +79,19 @@ echo "y" | sudo ufw enable
 sudo ufw status
 echo Server firewall configuration completed.
 
-echo Downloading Coin2Play install files.
-wget https://github.com/Coin2Play/c2pcore/releases/download/1.0.0/Coin2Play-linux.tar.gz
+echo Downloading AquilaX install files.
+wget https://github.com/aquilacoin/AquilaX/releases/download/1.2.0.0/AquilaX-linux.tar.gz
 echo Download complete.
 
-echo Installing Coin2Play.
-tar -zxvf Coin2Play-linux.tar.gz
-chmod 775 ./coin2playd
-chmod 775 ./coin2play-cli
-echo Coin2Play install complete. 
-sudo rm -rf Coin2Play-linux.tar.gz
+echo Installing AquilaX.
+tar -xvf AquilaX-linux.tar.gz
+chmod 775 ./Aquilad
+chmod 775 ./Aquila-cli
+echo AquilaX install complete. 
+sudo rm -rf AquilaX-linux.tar.gz
 clear
 
-echo Now ready to setup Coin2Play configuration file.
+echo Now ready to setup AquilaX configuration file.
 
 RPCUSER=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 RPCPASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
@@ -99,9 +99,9 @@ EXTIP=`curl -s4 icanhazip.com`
 echo Please input your private key.
 read GENKEY
 
-mkdir -p /root/.coin2play && touch /root/.coin2play/coin2play.conf
+mkdir -p /root/.Aquila && touch /root/.Aquila/Aquila.conf
 
-cat << EOF > /root/.coin2play/coin2play.conf
+cat << EOF > /root/.Aquila/Aquila.conf
 rpcuser=$RPCUSER
 rpcpassword=$RPCPASSWORD
 rpcallowip=127.0.0.1
@@ -110,34 +110,42 @@ listen=1
 daemon=1
 staking=1
 rpcallowip=127.0.0.1
-rpcport=2222
-port=2221
+rpcport=45455
+port=45454
 logtimestamps=1
 maxconnections=256
 masternode=1
 externalip=$EXTIP
 masternodeprivkey=$GENKEY
+addnode=139.99.195.25:45454
+addnode=139.99.198.86:45454
+addnode=139.99.194.139:45454
+addnode=80.211.189.222:45454
+addnode=104.207.155.156:45454
+addnode=66.42.80.73:45454
+addnode=104.207.155.156:45454
+addnode=144.202.54.93:45454
 EOF
 clear
-./coin2playd -daemon
-./coin2play-cli stop
-./coin2playd -daemon
+./Aquilad -daemon
+./Aquila-cli stop
+./Aquilad -daemon
 clear
-echo Coin2Play configuration file created successfully. 
-echo Coin2Play Server Started Successfully using the command ./coin2play -daemon
-echo If you get a message asking to rebuild the database, please hit Ctr + C and run ./coin2play -daemon -reindex
+echo AquilaX configuration file created successfully. 
+echo Aquila Server Started Successfully using the command ./Aquilad -daemon
+echo If you get a message asking to rebuild the database, please hit Ctr + C and run ./Aquilad -daemon -reindex
 echo If you still have further issues please reach out to support in our Discord channel. 
 echo Please use the following Private Key when setting up your wallet: $GENKEY
             ;;
 	    
     
         2)
-sudo ./coin2play-cli -daemon stop
-echo "! Stopping Coin2Play Daemon !"
+sudo ./Aquila-cli -daemon stop
+echo "! Stopping Aquila Daemon !"
 
 echo Configuring server firewall.
 sudo apt-get install -y ufw
-sudo ufw allow 2221
+sudo ufw allow 45454
 sudo ufw allow ssh/tcp
 sudo ufw limit ssh/tcp
 sudo ufw logging on
@@ -145,37 +153,37 @@ echo "y" | sudo ufw enable
 sudo ufw status
 echo Server firewall configuration completed.
 
-echo "! Removing Coin2Play !"
-sudo rm -rf c2p_install.sh*
-sudo rm -rf coin2play-install.sh*
+echo "! Removing Aquila !"
+sudo rm -rf aqx_install.sh*
+sudo rm -rf aquila-install.sh*
 sudo rm -rf ubuntu.zip*
-sudo rm -rf coin2playd
-sudo rm -rf coin2play-cli
-sudo rm -rf coin2play-qt
+sudo rm -rf Aquilad
+sudo rm -rf Aquila-cli
+sudo rm -rf Aquila-qt
 
 
 
-wget https://github.com/Coin2Play/c2pcore/releases/download/1.0.0/Coin2Play-linux.tar.gz
+wget https://github.com/aquilacoin/AquilaX/releases/download/1.2.0.0/AquilaX-linux.tar.gz
 echo Download complete.
-echo Installing Cooin2Play.
-tar -zxvf Coin2Play-linux.tar.gz
-chmod 775 ./coin2playd
-chmod 775 ./coin2play-cli
-echo Coin2Play install complete. 
-sudo rm -rf Coin2Play-linux.tar.gz
+echo Installing AquilaX.
+tar -xvf AquilaX-linux.tar.gz
+chmod 775 ./Aquilad
+chmod 775 ./Aquila-cli
+echo AquilaX install complete. 
+sudo rm -rf AquilaX-linux.tar.gz
 
             ;;
         3)
-            ./coin2playd -daemon
+            ./Aquilad -daemon
 		echo "If you get a message asking to rebuild the database, please hit Ctr + C and rebuild Aquila Index. (Option 6)"
             ;;
 	4)
-            ./coin2play-cli stop
+            ./Aquila-cli stop
             ;;
 	5)
-	    ./coin2play-cli getinfo
+	    ./Aquila-cli getinfo
 	    ;;
         6)
-	     ./coin2playd -daemon -reindex
+	     ./Aquilad -daemon -reindex
             ;;
 esac
