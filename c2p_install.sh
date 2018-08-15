@@ -3,7 +3,7 @@
 HEIGHT=15
 WIDTH=40
 CHOICE_HEIGHT=6
-BACKTITLE="Coin2Play Masternode Setup Wizard"
+
 TITLE="Coin2Play VPS Setup"
 MENU="Choose one of the following options:"
 
