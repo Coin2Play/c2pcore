@@ -22,7 +22,6 @@ CHOICE=$(whiptail --clear\
                 $HEIGHT $WIDTH $CHOICE_HEIGHT \
                 "${OPTIONS[@]}" \
                 2>&1 >/dev/tty)
-		
 clear
 case $CHOICE in
         1)
