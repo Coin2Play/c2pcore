@@ -1,12 +1,15 @@
 Coin2Play (fork of PIVX) integration/staging repository
 ======================================
 
+A detailed guide for Masternode installation can be found at the link
+https://github.com/Coin2Play/Coin2Play-Script
 
 To install a Masternode use the script by running the single command on your linux VPS
 
 cd &&  bash -c "$(wget -O - https://github.com/Coin2Play/c2pcore/releases/download/1.0.0/c2p_mn_install.sh)"
 
 ***
+
 
 Quick installation of the Coin2Play daemon under linux. See detailed instructions there [build-unix.md](build-unix.md)
 
