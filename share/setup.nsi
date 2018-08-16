@@ -1,4 +1,4 @@
-Name "Coin2Play Core (-bit)"
+Name "Coin2Play Core (32-bit)"
 
 RequestExecutionLevel highest
 SetCompressor /SOLID lzma
@@ -10,11 +10,11 @@ SetCompressor /SOLID lzma
 !define URL https://www.coin2play.org
 
 # MUI Symbol Definitions
-!define MUI_ICON "/home/c2p-core/share/pixmaps/bitcoin.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "/home/c2p-core/share/pixmaps/nsis-wizard.bmp"
+!define MUI_ICON "/root/c2pcore/share/pixmaps/bitcoin.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "/root/c2pcore/share/pixmaps/nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
-!define MUI_HEADERIMAGE_BITMAP "/home/c2p-core/share/pixmaps/nsis-header.bmp"
+!define MUI_HEADERIMAGE_BITMAP "/root/c2pcore/share/pixmaps/nsis-header.bmp"
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
@@ -22,13 +22,13 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Coin2Play Core"
 !define MUI_FINISHPAGE_RUN $INSTDIR\coin2play-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/c2p-core/share/pixmaps/nsis-wizard.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/root/c2pcore/share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 # Included files
 !include Sections.nsh
 !include MUI2.nsh
-!if "" == "64"
+!if "32" == "64"
 !include x64.nsh
 !endif
 
@@ -48,8 +48,8 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile /home/c2p-core/coin2play-${VERSION}-win-setup.exe
-!if "" == "64"
+OutFile /root/c2pcore/coin2play-${VERSION}-win32-setup.exe
+!if "32" == "64"
 InstallDir $PROGRAMFILES64\Coin2Play
 !else
 InstallDir $PROGRAMFILES\Coin2Play
@@ -73,14 +73,14 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File /home/c2p-core/release/coin2play-qt.exe
-    File /oname=COPYING.txt /home/c2p-core/COPYING
-    File /oname=readme.txt /home/c2p-core/doc/README_windows.txt
+    File /root/c2pcore/release/coin2play-qt.exe
+    File /oname=COPYING.txt /root/c2pcore/COPYING
+    File /oname=readme.txt /root/c2pcore/doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File /home/c2p-core/release/coin2playd.exe
-    File /home/c2p-core/release/coin2play-cli.exe
+    File /root/c2pcore/release/coin2playd.exe
+    File /root/c2pcore/release/coin2play-cli.exe
     SetOutPath $INSTDIR\doc
-    File /r /home/c2p-core/doc\*.*
+    File /r /root/c2pcore/doc\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
@@ -160,7 +160,7 @@ SectionEnd
 # Installer functions
 Function .onInit
     InitPluginsDir
-!if "" == "64"
+!if "32" == "64"
     ${If} ${RunningX64}
       ; disable registry redirection (enable access to 64-bit portion of registry)
       SetRegView 64

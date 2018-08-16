@@ -5471,7 +5471,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Coin2Play Alert&quot; admin@fo
     </message>
     <message>
         <location line="+1"/>
-        <source>Copyright (C) 2015-%i The Coin2Play Core Developers</source>
+        <source>Copyright (C) 2015-%i The LightPayCoin Core Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

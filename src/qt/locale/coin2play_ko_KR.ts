@@ -4292,8 +4292,8 @@ rpcpassword=%s
         <translation>Copyright (C) 2014-%i The Dash Core 개발자들</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The Coin2Play Core Developers</source>
-        <translation>Copyright (C) 2015-%i The Coin2Play Core 개발자</translation>
+        <source>Copyright (C) 2015-%i The LightPayCoin Core Developers</source>
+        <translation>Copyright (C) 2015-%i The LightPayCoin Core 개발자</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

@@ -2504,8 +2504,8 @@ MultiSend: %1</translation>
         <translation>Copyright (C) 2014-%i The Dash Core Ontwikkelaars</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The Coin2Play Core Developers</source>
-        <translation>Copyright (C) 2015-%i The Coin2Play Core Ontwikkelaars</translation>
+        <source>Copyright (C) 2015-%i The LightPayCoin Core Developers</source>
+        <translation>Copyright (C) 2015-%i The LightPayCoin Core Ontwikkelaars</translation>
     </message>
     <message>
         <source>Error</source>

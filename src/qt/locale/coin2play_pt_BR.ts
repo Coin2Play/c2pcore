@@ -3602,7 +3602,7 @@ https://www.transifex.com/coin2play-project/coin2play-project-translations</tran
         <translation>Todos os direitos reservados (C) 2014-%i aos Desenvolvedores do Dash Core</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The Coin2Play Core Developers</source>
+        <source>Copyright (C) 2015-%i The LightPayCoin Core Developers</source>
         <translation>Todos os direitos reservados (C) 2015-%i aos Desenvolvedores do Coin2Play Core</translation>
     </message>
     <message>

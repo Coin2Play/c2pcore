@@ -3215,8 +3215,8 @@ https://www.transifex.com/coin2play-project/coin2play-project-translations</tran
         <translation>Copyright (C) 2014-%i Разработчики Dash Core</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The Coin2Play Core Developers</source>
-        <translation>Copyright (C) 2015-%i Разработчики Coin2Play Core</translation>
+        <source>Copyright (C) 2015-%i The LightPayCoin Core Developers</source>
+        <translation>Copyright (C) 2015-%i Разработчики LightPayCoin Core</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

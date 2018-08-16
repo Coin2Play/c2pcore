@@ -12,7 +12,7 @@
 #define HAVE_BUILTIN_EXPECT 1
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
-#define HAVE_DLFCN_H 1
+/* #undef HAVE_DLFCN_H */
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
@@ -45,7 +45,7 @@
 #define HAVE_UNISTD_H 1
 
 /* Define to 1 if the system has the type `__int128'. */
-#define HAVE___INT128 1
+/* #undef HAVE___INT128 */
 
 /* Define to the sub-directory where libtool stores uninstalled libraries. */
 #define LT_OBJDIR ".libs/"

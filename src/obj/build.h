@@ -1,2 +1,1 @@
-#define BUILD_SUFFIX 49aa4e1-dirty
-#define BUILD_DATE "2018-07-25 23:55:25 +0300"
+// No build information available
