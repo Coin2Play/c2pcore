@@ -513,6 +513,8 @@ std::string LicenseInfo()
            "\n" +
            FormatParagraph(_("Copyright (C) 2018 The Coin2Play Core Developers")) + "\n" +
            "\n" +
+           FormatParagraph(_("Copyright (C) 2018 The Coin2Play Core Developers")) + "\n" +
+           "\n" +
            FormatParagraph(_("This is experimental software.")) + "\n" +
            "\n" +
            FormatParagraph(_("Distributed under the MIT software license, see the accompanying file COPYING or <http://www.opensource.org/licenses/mit-license.php>.")) + "\n" +
