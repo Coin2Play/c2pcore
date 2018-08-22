@@ -508,16 +508,21 @@ void BitcoinGUI::createMenuBar()
 
 void BitcoinGUI::createToolBars()
 {
-    if (walletFrame) {
-        QToolBar* toolbar = new QToolBar(tr("Tabs toolbar"));
-        toolbar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-        toolbar->addAction(overviewAction);
-        toolbar->addAction(sendCoinsAction);
-        toolbar->addAction(receiveCoinsAction);
-        toolbar->addAction(historyAction);
-        QSettings settings;
-        if (settings.value("fShowMasternodesTab").toBool()) {
-            toolbar->addAction(masternodeAction);
+	if (walletFrame) {
+		QToolBar* toolbar = new QToolBar(tr("Tabs toolbar"));
+		toolbar->setObjectName("Main-Toolbar"); // Name for CSS addressing
+		toolbar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+		//        // Add some empty space at the top of the toolbars
+		//        QAction* spacer = new QAction(this);
+		//        toolbar->addAction(spacer);
+		//        toolbar->widgetForAction(spacer)->setObjectName("ToolbarSpacer");
+		toolbar->addAction(overviewAction);
+		toolbar->addAction(sendCoinsAction);
+		toolbar->addAction(receiveCoinsAction);
+		toolbar->addAction(historyAction);
+		QSettings settings;
+		if (settings.value("fShowMasternodesTab").toBool()) {
+			toolbar->addAction(masternodeAction);
         }
         toolbar->setMovable(false); // remove unused icon in upper left corner
 		toolbar->setOrientation(Qt::Vertical);
