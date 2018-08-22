@@ -537,6 +537,7 @@ void BitcoinGUI::createToolBars()
         layout->addWidget(walletFrame);
         layout->setSpacing(0);
         layout->setContentsMargins(QMargins());
+		layout->setDirection(QBoxLayout::LeftToRight);
         QWidget* containerWidget = new QWidget();
         containerWidget->setLayout(layout);
         setCentralWidget(containerWidget);
