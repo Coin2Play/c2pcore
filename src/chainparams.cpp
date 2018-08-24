@@ -103,7 +103,7 @@ public:
         nMaturity = 20;
         nMasternodeCountDrift = 20;
         nMasternodeCollateralLimit = 10000;
-        nModifierUpdateBlock = 35000; //Was 615800
+        nModifierUpdateBlock = 615800;
         nMaxMoneyOut = 50000000 * COIN;
 
         const char* pszTimestamp = "Dont ever accept anything blindly , good or bad.";
@@ -139,7 +139,7 @@ public:
 
         fRequireRPCPassword = true;
         fMiningRequiresPeers = false;
-        fAllowMinDifficultyBlocks = true;
+        fAllowMinDifficultyBlocks = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
