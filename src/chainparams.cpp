@@ -51,12 +51,13 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 //    timestamp before)
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
-    boost::assign::map_list_of
-    (0, uint256("0x000004be71e2fe3f0bf99bc1386c8a0ace81b7f4c39fdb44d8141542cd502b22"));
+boost::assign::map_list_of
+(0, uint256("0x000004be71e2fe3f0bf99bc1386c8a0ace81b7f4c39fdb44d8141542cd502b22"))
+(33777, uint256("0x0a4352d1dbccb5eb367a2d773e24fa00d2098cb7dd6a62dce998fe6aa46e1a26"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1533025857, // * UNIX timestamp of last checkpoint block
-    0,          // * total number of transactions between genesis and last checkpoint
+	1536227078, // * UNIX timestamp of last checkpoint block genesis was 153302587
+	69467,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
@@ -124,9 +125,9 @@ public:
 		assert(hashGenesisBlock == uint256("0x000004be71e2fe3f0bf99bc1386c8a0ace81b7f4c39fdb44d8141542cd502b22"));
         assert(genesis.hashMerkleRoot == uint256("0xff0b6f96ea5f0a612df2233cf03a4288e0e49e0f4a7e74cf04c4a34dd5d1b7a7"));
 
-        vSeeds.push_back(CDNSSeedData("199.247.17.25", "199.247.17.25"));            // Single node address
+        vSeeds.push_back(CDNSSeedData("199.247.17.25", "199.247.17.25"));        // Single node address
         vSeeds.push_back(CDNSSeedData("108.61.178.187", "108.61.178.187"));     // Single node address
-        vSeeds.push_back(CDNSSeedData("80.240.17.16", "80.240.17.16"));   // Single node address
+        vSeeds.push_back(CDNSSeedData("80.240.17.16", "80.240.17.16"));        // Single node address
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 87);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 117);
